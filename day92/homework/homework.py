@@ -1,5 +1,12 @@
 # hw1 The Coupon Code
+from datetime import datetime
 
+def check_coupon(entered_code, correct_code, current_date, expiration_date):
+    
+    current_date = datetime.strptime(current_date,"%B %d, %Y")
+    expiration_date = datetime.strptime(expiration_date, "%B %d, %Y")
+    
+    return current_date <= expiration_date and entered_code == str(correct_code)
 
 # hw2 Are the numbers in order?
 def in_asc_order(arr):
@@ -23,5 +30,4 @@ def factorial(n):
 def mxdiflg(a1, a2):
     if not a1 or not a2:
         return -1
-    return max(len(max(a1, key=len)) - len(min(a2, key=len)),
-                len(max(a2, key=len)) - len(min(a1, key=len)))
+    return max(len(max(a1, key=len)) - len(min(a2, key=len)), len(max(a2, key=len)) - len(min(a1, key=len)))
